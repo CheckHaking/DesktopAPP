@@ -207,16 +207,16 @@ class Product:
                                                                                               self.input_new_price.get(),
                                                                                               self.input_old_price.get(),
                                                                                               self.input_new_stok.get(),
-                                                                                              self.input_new_stok.get()
+                                                                                              self.input_old_stok.get()
                                                                                                 ))
         self.button_update.grid(row=8, columnspan=2, sticky=W+E)
 
-    def update_product(self, a_name, n_name, a_price, n_price, a_stok, n_stok):
+    def update_product(self, n_name, a_name, n_price, a_price, n_stok, a_stok):
         query = "UPDATE producto SET nombre = ?, precio = ?, stok = ? WHERE nombre = ? AND precio = ? AND stok = ?"
         params = (n_name, n_price, n_stok, a_name, a_price, a_stok)
         self.db_query(query, params)
         self.edit_window.destroy()
-        self.message["text"]='El producto {} ha sido actualizado!!'.format(a_name)
+        self.message["text"] = 'El producto {} ha sido actualizado!!'.format(a_name)
 
 
 
